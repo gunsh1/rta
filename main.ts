@@ -124,6 +124,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, l
     tiles.setTileAt(location, assets.tile`myTile4`)
     music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
 })
+let projectile: Sprite = null
 let _３: Sprite = null
 let _２: Sprite = null
 let teki: Sprite = null
@@ -327,4 +328,127 @@ game.onUpdateInterval(500, function () {
     scene.followPath(_３, scene.aStar(tiles.locationOfSprite(_３), tiles.locationOfSprite(mySprite)), randint(100, 180))
     scene.followPath(_5, scene.aStar(tiles.locationOfSprite(_5), tiles.locationOfSprite(mySprite)), 80)
     scene.followPath(_6, scene.aStar(tiles.locationOfSprite(_6), tiles.locationOfSprite(mySprite)), 80)
+})
+game.onUpdateInterval(500, function () {
+    if (mySprite.x == mySprite2.x) {
+        if (mySprite.x < mySprite2.x) {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . 4 4 . . . . . . . 
+                . . . . . . 4 5 5 4 . . . . . . 
+                . . . . . . 2 5 5 2 . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, mySprite2, 100, 0)
+        } else {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . 4 4 . . . . . . . 
+                . . . . . . 4 5 5 4 . . . . . . 
+                . . . . . . 2 5 5 2 . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, mySprite2, -100, 0)
+        }
+    } else if (mySprite.y == _5.y) {
+        if (mySprite.y < _5.y) {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . 4 4 . . . . . . . 
+                . . . . . . 4 5 5 4 . . . . . . 
+                . . . . . . 2 5 5 2 . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, mySprite2, 100, 0)
+        } else {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . 4 4 . . . . . . . 
+                . . . . . . 4 5 5 4 . . . . . . 
+                . . . . . . 2 5 5 2 . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, mySprite2, -100, 0)
+        }
+    } else if (mySprite.y == _6.y) {
+        if (mySprite.y < _6.y) {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . 4 4 . . . . . . . 
+                . . . . . . 4 5 5 4 . . . . . . 
+                . . . . . . 2 5 5 2 . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, mySprite2, 100, 0)
+        } else {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . 4 4 . . . . . . . 
+                . . . . . . 4 5 5 4 . . . . . . 
+                . . . . . . 2 5 5 2 . . . . . . 
+                . . . . . . . 2 2 . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, mySprite2, 100, 0)
+        }
+    }
 })
